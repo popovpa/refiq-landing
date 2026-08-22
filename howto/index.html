@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Как подключиться к RefIQ — запуск партнёрских продаж и tracking</title>
+  <meta name="description" content="Пошаговое подключение RefIQ для бизнеса и агентов: создание оффера, tracking links, click_id, сохранение клика, postback, комиссии и выплаты." />
+  <meta property="og:title" content="Как подключиться к RefIQ" />
+  <meta property="og:description" content="RefIQ помогает бизнесу запускать партнёрские продажи, а агентам — получать офферы, tracking links и прозрачную статистику." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="theme-color" content="#f2f5ef" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html" aria-label="RefIQ — на главную">Ref<span>IQ</span></a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="../index.html">О продукте</a>
+        <a href="../index.html#how-it-works">Как работает</a>
+        <a href="index.html" aria-current="page">Подключить</a>
+        <a class="nav-login btn btn-primary btn-sm" href="https://app.refiq.ru">Войти</a>
+      </nav>
+
+      <a class="btn btn-primary btn-sm header-cta" href="https://app.refiq.ru">Войти</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero howto-hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Подключение</p>
+        <h1 id="hero-title">Как подключиться к&nbsp;RefIQ</h1>
+        <p class="lead">
+          RefIQ помогает бизнесу запускать партнёрские продажи, а агентам — выбирать офферы, получать tracking links и видеть прозрачную статистику по кликам, конверсиям, комиссиям и выплатам.
+        </p>
+
+        <div class="choice">
+          <article class="choice-card">
+            <h2>Я бизнес</h2>
+            <p>Хочу запустить партнёрскую программу, подключить агентов и видеть результат в одной системе.</p>
+            <a class="btn btn-primary" href="#business">Подключить бизнес</a>
+          </article>
+          <article class="choice-card">
+            <h2>Я агент</h2>
+            <p>Хочу выбрать офферы, получить tracking links и зарабатывать на продвижении.</p>
+            <a class="btn btn-ghost" href="#agent">Стать агентом</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Ценность для бизнеса -->
+    <section class="section" id="business-value" aria-labelledby="business-value-title">
+      <div class="container">
+        <p class="eyebrow">Бизнесу</p>
+        <h2 class="section-title" id="business-value-title">Что RefIQ даёт бизнесу</h2>
+        <p class="section-lead">
+          RefIQ превращает партнёрские продажи из ручного процесса в управляемый канал. Офферы, партнёры, tracking links, клики, конверсии, комиссии и выплаты находятся в одной системе.
+        </p>
+        <ol class="cards cards-3">
+          <li>
+            <span class="num">01</span>
+            <h3>Контроль партнёрского канала</h3>
+            <p>Бизнес видит, кто продвигает оффер, откуда приходят клики и какие действия они приносят.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Прозрачная атрибуция</h3>
+            <p>Каждый переход получает <code>click_id</code>, который помогает сохранить контекст партнёрского клика до момента postback.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Меньше ручной работы</h3>
+            <p>Не нужно вести ссылки, комиссии, статусы и выплаты в таблицах.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Меньше споров</h3>
+            <p>Бизнес и партнёры смотрят на единую статистику по кликам, конверсиям и начислениям.</p>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <h3>Масштабирование продаж</h3>
+            <p>Можно подключать больше агентов, запускать новые офферы и централизованно управлять условиями.</p>
+          </li>
+          <li>
+            <span class="num">06</span>
+            <h3>Понятная экономика</h3>
+            <p>Видно, какие партнёры, источники и офферы дают качественный результат.</p>
+          </li>
+        </ol>
+        <p class="result-line">Главный результат: больше контролируемых продаж через партнёров при меньшем операционном хаосе.</p>
+      </div>
+    </section>
+
+    <!-- 2. Ценность для агента -->
+    <section class="section section-alt" id="agent-value" aria-labelledby="agent-value-title">
+      <div class="container">
+        <p class="eyebrow">Агенту</p>
+        <h2 class="section-title" id="agent-value-title">Что RefIQ даёт агенту</h2>
+        <p class="section-lead">
+          RefIQ даёт агенту понятный способ выбирать офферы, получать tracking links, продвигать продукты и видеть свои начисления без ручных сверок.
+        </p>
+        <ol class="cards cards-3">
+          <li>
+            <span class="num">01</span>
+            <h3>Доступные офферы</h3>
+            <p>Агент видит условия, целевое действие, размер вознаграждения и ограничения до начала продвижения.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Персональные ссылки</h3>
+            <p>Для каждого оффера и кампании создаётся tracking link агента.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Прозрачная статистика</h3>
+            <p>В кабинете видны клики, конверсии, статусы и начисления.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Понятные выплаты</h3>
+            <p>Агент понимает, какие комиссии ожидают проверки, какие подтверждены и какие готовы к выплате.</p>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <h3>Сравнение эффективности</h3>
+            <p>Можно видеть, какие офферы, кампании и источники дают лучший результат.</p>
+          </li>
+          <li>
+            <span class="num">06</span>
+            <h3>Меньше зависимости от ручных отчётов</h3>
+            <p>Статистика формируется в RefIQ, а не пересылается в таблицах и сообщениях.</p>
+          </li>
+        </ol>
+        <p class="result-line">Главный результат: понятные офферы, прозрачная статистика и предсказуемые начисления.</p>
+      </div>
+    </section>
+
+    <!-- 3. Подключение для бизнеса -->
+    <section class="section" id="business" aria-labelledby="business-title">
+      <div class="container">
+        <p class="eyebrow">Путь бизнеса</p>
+        <h2 class="section-title" id="business-title">Как бизнес подключает RefIQ</h2>
+        <ol class="timeline">
+          <li>
+            <h3>Создать аккаунт</h3>
+            <p>Компания регистрируется в RefIQ через <code>app.refiq.ru</code>.</p>
+          </li>
+          <li>
+            <h3>Настроить профиль компании</h3>
+            <p>Указывает контактные, юридические и продуктовые данные.</p>
+          </li>
+          <li>
+            <h3>Создать первый оффер</h3>
+            <p>Бизнес описывает продукт, destination URL, целевое действие, правила начисления комиссии, attribution window и ограничения.</p>
+          </li>
+          <li>
+            <h3>Настроить tracking link</h3>
+            <p>RefIQ создаёт tracking-ссылки через <code>go.refiq.ru/{short_code}</code>. После перехода по такой ссылке RefIQ создаёт <code>click_id</code> и передаёт его на сайт бизнеса.</p>
+          </li>
+          <li>
+            <h3>Выбрать способ сохранения <code>click_id</code></h3>
+            <p>Бизнес выбирает один из двух вариантов:</p>
+            <ul class="inline-list">
+              <li>подключить JS SDK RefIQ для автоматического определения и сохранения <code>click_id</code>;</li>
+              <li>использовать собственную логику сайта и сохранять <code>click_id</code> в first-party cookie.</li>
+            </ul>
+            <p>Сохранение <code>click_id</code> нужно, чтобы партнёрский клик не потерялся между страницами сайта, шагами воронки и отложенной конверсией.</p>
+          </li>
+          <li>
+            <h3>Настроить postback</h3>
+            <p>Сайт, CRM или backend бизнеса должен отправлять postback в RefIQ при наступлении целевого действия.</p>
+            <p>Postback должен передавать:</p>
+            <ul class="inline-list">
+              <li><code>click_id</code>;</li>
+              <li>идентификатор конверсии;</li>
+              <li>тип целевого действия;</li>
+              <li>дату и время события;</li>
+              <li>статус события;</li>
+              <li>дополнительные параметры, если они нужны для аналитики и расчёта комиссии.</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Пригласить партнёров</h3>
+            <p>Оффер можно сделать публичным, приватным или открыть выбранным агентам.</p>
+          </li>
+          <li>
+            <h3>Контролировать результат</h3>
+            <p>Бизнес видит клики, конверсии, комиссии, качество трафика и суммы к выплате.</p>
+          </li>
+        </ol>
+
+        <aside class="prep">
+          <h3>Что нужно подготовить до подключения</h3>
+          <ul>
+            <li>описание продукта или услуги</li>
+            <li>целевое действие: заявка, покупка, регистрация или другое подтверждаемое событие</li>
+            <li>destination URL</li>
+            <li>размер вознаграждения</li>
+            <li>правила начисления комиссии</li>
+            <li>условия подтверждения целевого действия</li>
+            <li>attribution window</li>
+            <li>правила модерации</li>
+            <li>ограничения по источникам трафика</li>
+            <li>выбрать способ сохранения <code>click_id</code>: JS SDK RefIQ или собственная логика сайта</li>
+            <li>если используется JS SDK — подготовить страницу, на которую будет добавлен SDK</li>
+            <li>если используется собственная логика — определить правила сохранения <code>click_id</code> в first-party cookie</li>
+            <li>определить срок жизни сохранённого <code>click_id</code></li>
+            <li>определить правила перезаписи <code>click_id</code> при повторных переходах</li>
+            <li>подготовить postback для передачи конверсий в RefIQ</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 4. Подключение для агента -->
+    <section class="section section-alt" id="agent" aria-labelledby="agent-title">
+      <div class="container">
+        <p class="eyebrow">Путь агента</p>
+        <h2 class="section-title" id="agent-title">Как агент начинает работать в&nbsp;RefIQ</h2>
+        <ol class="timeline">
+          <li>
+            <h3>Создать аккаунт</h3>
+            <p>Агент регистрируется в RefIQ.</p>
+          </li>
+          <li>
+            <h3>Заполнить профиль</h3>
+            <p>Указывает контактные данные, каналы продвижения и платёжную информацию.</p>
+          </li>
+          <li>
+            <h3>Выбрать оффер</h3>
+            <p>Агент находит доступный публичный оффер или принимает приглашение к приватному офферу.</p>
+          </li>
+          <li>
+            <h3>Получить tracking link</h3>
+            <p>RefIQ создаёт персональную ссылку агента для продвижения оффера.</p>
+          </li>
+          <li>
+            <h3>Запустить продвижение</h3>
+            <p>Агент размещает ссылку в разрешённых каналах.</p>
+          </li>
+          <li>
+            <h3>Следить за статистикой</h3>
+            <p>В кабинете видны клики, конверсии, статусы и начисления.</p>
+          </li>
+          <li>
+            <h3>Получать выплаты</h3>
+            <p>После проверки конверсий агент видит подтверждённую комиссию и payout-статус.</p>
+          </li>
+        </ol>
+
+        <aside class="prep">
+          <h3>Что нужно подготовить агенту</h3>
+          <ul>
+            <li>контактные данные</li>
+            <li>описание каналов продвижения</li>
+            <li>источники трафика</li>
+            <li>платёжные данные</li>
+            <li>понимание ограничений по офферу</li>
+            <li>готовность использовать только разрешённые методы продвижения</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 5. Tracking и postback -->
+    <section class="section" id="tracking" aria-labelledby="tracking-title">
+      <div class="container">
+        <p class="eyebrow">Tracking и postback</p>
+        <h2 class="section-title" id="tracking-title">Что происходит после клика</h2>
+        <ol class="timeline timeline-compact">
+          <li>
+            <h3>Агент размещает tracking link</h3>
+            <p>Партнёр использует персональную ссылку в разрешённом канале продвижения.</p>
+          </li>
+          <li>
+            <h3>Пользователь переходит по ссылке</h3>
+            <p>Ссылка имеет формат <code>go.refiq.ru/{short_code}</code>.</p>
+          </li>
+          <li>
+            <h3>Tracker RefIQ определяет контекст</h3>
+            <p>RefIQ определяет партнёра, оффер и кампанию.</p>
+          </li>
+          <li>
+            <h3>RefIQ создаёт <code>click_id</code></h3>
+            <p>Каждый переход получает уникальный идентификатор клика.</p>
+          </li>
+          <li>
+            <h3>Пользователь попадает на сайт бизнеса</h3>
+            <p>RefIQ перенаправляет пользователя на destination URL рекламодателя и передаёт <code>click_id</code>.</p>
+          </li>
+          <li>
+            <h3>Сайт сохраняет <code>click_id</code></h3>
+            <p>Сайт бизнеса сохраняет <code>click_id</code>, чтобы партнёрский клик не потерялся между переходами по сайту, шагами воронки и отложенной конверсией.</p>
+          </li>
+          <li>
+            <h3>Пользователь совершает целевое действие</h3>
+            <p>Это может быть заявка, покупка, регистрация или другое подтверждаемое событие.</p>
+          </li>
+          <li>
+            <h3>Сайт отправляет postback в RefIQ</h3>
+            <p>Сайт, CRM или backend бизнеса отправляет postback с сохранённым <code>click_id</code> и данными конверсии.</p>
+          </li>
+          <li>
+            <h3>RefIQ связывает конверсию с исходным кликом</h3>
+            <p>RefIQ по <code>click_id</code> находит исходный клик и определяет партнёра, оффер и кампанию.</p>
+          </li>
+          <li>
+            <h3>Комиссия рассчитывается по правилам оффера</h3>
+            <p>RefIQ применяет правила начисления комиссии и обновляет статус начисления.</p>
+          </li>
+          <li>
+            <h3>Данные попадают в аналитику и выплаты</h3>
+            <p>Бизнес и агент видят актуальный результат в своих кабинетах.</p>
+          </li>
+        </ol>
+
+        <p class="scheme" aria-label="Схема пути от ссылки до выплаты">
+          <span>agent link</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>go.refiq.ru</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>click_id</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>advertiser site</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>saved click_id</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>postback</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>attribution</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>commission</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>payout</span>
+        </p>
+
+        <p class="result-line">
+          Postback — основной механизм связи клика и конверсии. Сохранение <code>click_id</code> на сайте нужно только для того, чтобы не потерять клик до момента postback.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Два способа сохранить click_id -->
+    <section class="section section-alt" id="click-id-options" aria-labelledby="click-id-title">
+      <div class="container">
+        <p class="eyebrow">Сохранение клика</p>
+        <h2 class="section-title" id="click-id-title">Два способа не потерять клик</h2>
+        <p class="section-lead">
+          RefIQ не заставляет бизнес перестраивать сайт под один сценарий. Можно быстро подключиться через JS SDK или использовать собственную логику сайта и сохранять <code>click_id</code> в first-party cookie.
+        </p>
+
+        <div class="option-grid">
+          <article class="option-card">
+            <span class="badge">Быстрый старт</span>
+            <h3>Автоматическое сохранение через JS SDK</h3>
+            <p>
+              Бизнес добавляет JS SDK RefIQ на сайт. SDK автоматически определяет <code>click_id</code> после перехода по tracking link и сохраняет его на стороне сайта, чтобы партнёрский клик не потерялся между страницами, шагами воронки и отложенной конверсией.
+            </p>
+            <ol class="option-steps">
+              <li>Пользователь переходит по ссылке партнёра.</li>
+              <li>RefIQ перенаправляет пользователя на сайт бизнеса.</li>
+              <li>В URL или параметрах перехода передаётся <code>click_id</code>.</li>
+              <li>JS SDK RefIQ автоматически считывает <code>click_id</code>.</li>
+              <li>SDK сохраняет <code>click_id</code> на стороне сайта.</li>
+              <li>При целевом действии сайт, CRM или backend отправляет postback в RefIQ.</li>
+              <li>RefIQ по <code>click_id</code> связывает конверсию с исходным кликом.</li>
+            </ol>
+            <p class="option-benefit">Этот вариант снижает нагрузку на разработку и позволяет быстрее запустить первый оффер без глубокой интеграции.</p>
+            <p class="option-fit">Подходит для быстрого запуска, MVP, пилота и компаний без сложной собственной tracking-логики.</p>
+            <p>Вставьте код на сайт. <code>SCRIPT_ID</code> создаётся в кабинете бизнеса при подключении JavaScript SDK.</p>
+            <div class="code-block" data-copy>
+              <div class="code-meta">
+                <span>html</span>
+                <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+              </div>
+              <pre><code>&lt;script&gt;
+  (function (window) {
+    var match = location.href.match(/[?&amp;#]rqcid=([a-z0-9]{12})/);
+    if (match) {
+      document.cookie = "rqcid=" + match[1] + ";path=/;max-age=31536000;SameSite=Lax";
+    }
+    var queue = (window.RefIQ = window.RefIQ || []);
+    queue.event = function (name, data) {
+      queue.push(["event", name, data]);
+    };
+  })(window);
+&lt;/script&gt;
+&lt;script async src="https://refiq.ru/sdk.js" data-id="SCRIPT_ID"&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </article>
+
+          <article class="option-card">
+            <span class="badge badge-alt">Больше контроля</span>
+            <h3>Собственная логика сайта + first-party cookie</h3>
+            <p>
+              Если у бизнеса уже есть своя логика обработки реферальных параметров, сайт может самостоятельно определить <code>click_id</code> из URL, сохранить его в first-party cookie и использовать это значение при отправке postback в RefIQ.
+            </p>
+            <ol class="option-steps">
+              <li>Пользователь переходит по tracking link.</li>
+              <li>RefIQ перенаправляет пользователя на destination URL бизнеса.</li>
+              <li>Сайт бизнеса получает <code>click_id</code> в параметрах URL.</li>
+              <li>Сайт самостоятельно валидирует и сохраняет <code>click_id</code> в first-party cookie.</li>
+              <li>При заявке, регистрации, покупке или другом целевом действии сайт достаёт <code>click_id</code> из cookie.</li>
+              <li>Сайт передаёт postback в RefIQ.</li>
+              <li>RefIQ по <code>click_id</code> связывает конверсию с исходным кликом.</li>
+            </ol>
+            <p class="option-benefit">Этот вариант даёт бизнесу полный контроль над хранением <code>click_id</code>, сроком жизни cookie, правилами перезаписи и внутренней логикой атрибуции.</p>
+            <p class="option-fit">Подходит для компаний с собственной CRM, сложной воронкой, несколькими доменами или уже существующей реферальной логикой.</p>
+          </article>
+        </div>
+
+        <aside class="advantage">
+          <h3>Почему это конкурентное преимущество RefIQ</h3>
+          <p>
+            RefIQ поддерживает два сценария сохранения клика: быстрый через JS SDK и контролируемый через собственную логику сайта. Бизнес может начать с простого варианта, а затем перейти к более глубокой интеграции без смены tracking-контура.
+          </p>
+          <ul>
+            <li>
+              <strong>Быстрый запуск</strong>
+              — первый оффер можно запустить без сложной backend-интеграции.
+            </li>
+            <li>
+              <strong>Гибкая интеграция</strong>
+              — бизнес сам выбирает, где и как сохранять <code>click_id</code>.
+            </li>
+            <li>
+              <strong>Меньше риска миграции</strong>
+              — RefIQ можно встроить в существующий сайт, CRM и аналитику постепенно.
+            </li>
+          </ul>
+          <p class="advantage-note">
+            JS SDK — быстрый способ для старта. Собственная cookie-логика — альтернатива для полного контроля. В обоих случаях postback остаётся основным механизмом связи клика и конверсии.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 7. Варианты подключения -->
+    <section class="section" id="connection-options" aria-labelledby="options-title">
+      <div class="container">
+        <p class="eyebrow">Интеграция</p>
+        <h2 class="section-title" id="options-title">Подключение можно начать простым способом</h2>
+        <ol class="cards cards-2">
+          <li>
+            <span class="num">01</span>
+            <h3>JS SDK RefIQ</h3>
+            <p>Быстрый способ автоматически определить и сохранить <code>click_id</code> на сайте бизнеса, чтобы клик не потерялся до момента postback.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Собственная cookie-логика</h3>
+            <p>Сайт бизнеса сам определяет <code>click_id</code>, сохраняет его в first-party cookie и использует при отправке postback.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Через postback</h3>
+            <p>Сайт, CRM или внутренняя система передаёт в RefIQ целевые действия вместе с сохранённым <code>click_id</code>.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Через API</h3>
+            <p>Бизнес подключает RefIQ к существующим процессам, CRM, биллингу или аналитике.</p>
+          </li>
+        </ol>
+        <p class="result-line">
+          На старте можно выбрать самый простой сценарий: JS SDK для быстрого запуска или собственную cookie-логику, если бизнесу нужен полный контроль над сохранением <code>click_id</code>. В обоих случаях связь клика и конверсии выполняется через postback.
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. Финальный CTA -->
+    <section class="cta" id="connect" aria-labelledby="connect-title">
+      <div class="container">
+        <h2 id="connect-title">Начните с одного оффера</h2>
+        <p>Не нужно сразу строить большую партнёрскую сеть. Создайте первый оффер, подключите нескольких агентов и проверьте экономику канала на реальных данных.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://app.refiq.ru">Подключить бизнес</a>
+          <a class="btn btn-ghost" href="https://app.refiq.ru">Стать агентом</a>
+        </div>
+        <p class="cta-note">Вход в кабинет: <a href="https://app.refiq.ru">app.refiq.ru</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="../index.html">Ref<span>IQ</span></a>
+      <p>Платформа партнёрских продаж и трекинга</p>
+      <nav class="footer-nav" aria-label="Дополнительно">
+        <a href="../docs/index.html">Документация</a>
+      </nav>
+      <p class="footer-meta">© <span id="year"></span> RefIQ</p>
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

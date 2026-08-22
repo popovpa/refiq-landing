@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Документация RefIQ — подключение tracking и postback</title>
+  <meta name="description" content="Техническая документация RefIQ: подключение JS SDK, rqcid, clickstream и server-to-server Postback." />
+  <meta property="og:title" content="Документация RefIQ — подключение tracking и postback" />
+  <meta property="og:description" content="Техническая документация RefIQ: подключение JS SDK, rqcid, clickstream и server-to-server Postback." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="theme-color" content="#f2f5ef" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#docs-content">Перейти к содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html" aria-label="RefIQ — на главную">Ref<span>IQ</span></a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="../index.html">О продукте</a>
+        <a href="../index.html#how-it-works">Как работает</a>
+        <a href="../howto/index.html">Подключить</a>
+        <a class="nav-login btn btn-primary btn-sm" href="https://app.refiq.ru">Войти</a>
+      </nav>
+
+      <a class="btn btn-primary btn-sm header-cta" href="https://app.refiq.ru">Войти</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero docs-hero" aria-labelledby="docs-title">
+      <div class="container">
+        <p class="eyebrow">Документация</p>
+        <h1 id="docs-title">Документация RefIQ</h1>
+        <p class="lead">Подключите партнёрский трекинг, clickstream и передачу конверсий к вашему продукту.</p>
+      </div>
+    </section>
+
+    <div class="container docs-layout">
+      <nav class="docs-mobile-nav" aria-label="Разделы документации">
+        <label for="docs-jump">Раздел</label>
+        <select id="docs-jump">
+          <option value="#quick-start">Быстрый старт</option>
+          <option value="#redirect">Как работает переход</option>
+          <option value="#sdk">JS SDK</option>
+          <option value="#without-sdk">Интеграция без SDK</option>
+          <option value="#clickstream">Clickstream</option>
+          <option value="#postback">Postback</option>
+          <option value="#attribution">Атрибуция</option>
+          <option value="#verify">Проверка интеграции</option>
+        </select>
+      </nav>
+
+      <aside class="docs-sidebar" aria-label="Содержание">
+        <p class="docs-sidebar-title">Содержание</p>
+        <ol class="docs-toc">
+          <li><a href="#quick-start">Быстрый старт</a></li>
+          <li><a href="#redirect">Как работает переход</a></li>
+          <li><a href="#sdk">JS SDK</a></li>
+          <li><a href="#without-sdk">Интеграция без SDK</a></li>
+          <li><a href="#clickstream">Clickstream</a></li>
+          <li><a href="#postback">Postback</a></li>
+          <li><a href="#attribution">Атрибуция</a></li>
+          <li><a href="#verify">Проверка интеграции</a></li>
+        </ol>
+      </aside>
+
+      <article class="docs-content" id="docs-content">
+        <div class="docs-intro" id="intro">
+          <ol class="docs-flow" aria-label="Схема базовой интеграции">
+            <li>Партнёрская ссылка</li>
+            <li><code>go.refiq.ru/{short_code}</code></li>
+            <li><code>rqcid</code></li>
+            <li>Сайт бизнеса</li>
+            <li>Конверсия</li>
+            <li>Postback</li>
+            <li>RefIQ</li>
+          </ol>
+
+          <div class="result-line docs-callout">
+            <p>Вся базовая интеграция RefIQ сводится к двум действиям: сохранить <code>rqcid</code> после перехода пользователя и передать его обратно в RefIQ при возникновении конверсии.</p>
+            <ol>
+              <li>Сохранить <code>rqcid</code> пользователя.</li>
+              <li>Передать <code>rqcid</code> в RefIQ при возникновении конверсии.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Быстрый старт -->
+        <section class="docs-section" id="quick-start" aria-labelledby="quick-start-title">
+          <h2 class="section-title" id="quick-start-title">Быстрый старт</h2>
+          <p class="section-lead">Два действия. Остальное RefIQ делает сам.</p>
+
+          <ol class="cards cards-2">
+            <li>
+              <span class="num">01</span>
+              <h3>Сохранить <code>rqcid</code></h3>
+              <p>После перехода по партнёрской ссылке идентификатор клика попадает на сайт бизнеса. Его нужно сохранить до целевого действия.</p>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <h3>Отправить Postback</h3>
+              <p>Когда пользователь совершает Goal оффера, backend бизнеса передаёт <code>rqcid</code> в RefIQ server-to-server.</p>
+            </li>
+          </ol>
+
+          <h3 class="docs-h3">Шаг 1. Пользователь переходит по партнёрской ссылке</h3>
+          <p>Пример tracking link:</p>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>text</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>https://go.refiq.ru/ab31ca</code></pre>
+          </div>
+        </section>
+
+        <!-- Как работает переход -->
+        <section class="docs-section" id="redirect" aria-labelledby="redirect-title">
+          <h2 class="section-title" id="redirect-title">Как работает переход</h2>
+          <p class="section-lead">RefIQ Tracker обрабатывает короткий код ссылки и передаёт <code>rqcid</code> на сайт бизнеса.</p>
+
+          <p>RefIQ Tracker:</p>
+          <ol class="timeline">
+            <li>
+              <h3>Находит TrackingLink</h3>
+              <p>По <code>short_code</code> из URL.</p>
+            </li>
+            <li>
+              <h3>Определяет связанные сущности</h3>
+              <p>Offer, Partner, Campaign если она задана, Destination URL.</p>
+            </li>
+            <li>
+              <h3>Регистрирует Click</h3>
+              <p>Фиксирует переход по tracking link.</p>
+            </li>
+            <li>
+              <h3>Создаёт уникальный <code>rqcid</code></h3>
+              <p><code>rqcid</code> связывает конкретный клик с TrackingLink, Partner, Offer и другими данными атрибуции.</p>
+            </li>
+            <li>
+              <h3>Выполняет HTTP 302</h3>
+              <p>Редирект на сайт бизнеса с <code>rqcid</code> в query-параметре.</p>
+            </li>
+          </ol>
+
+          <p>Запрос:</p>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>http</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>GET https://go.refiq.ru/ab31ca</code></pre>
+          </div>
+
+          <p>Ответ:</p>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>http</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>HTTP/1.1 302 Found
+Location: https://shop.example.com/product/123?rqcid=rq_8f92a71c</code></pre>
+          </div>
+
+          <h3 class="docs-h3" id="save-rqcid">Сохранение rqcid</h3>
+          <p>Бизнес должен сохранить <code>rqcid</code>, чтобы он не потерялся между переходом пользователя и целевым действием.</p>
+
+          <ol class="docs-flow docs-flow-wide" aria-label="Последовательность сохранения rqcid">
+            <li><code>URL ?rqcid=...</code></li>
+            <li>frontend / backend</li>
+            <li>cookie / localStorage / session</li>
+            <li>идентификация пользователя</li>
+            <li><code>customer_id ↔ rqcid</code></li>
+            <li>server-side storage</li>
+            <li>заказ / lead / другая конверсия</li>
+          </ol>
+
+          <div class="tech-note">
+            <p>Cookie или localStorage — только технический механизм временного хранения.</p>
+            <p>После идентификации пользователя предпочтительно сохранять связь <code>customer_id ↔ rqcid</code> server-side. Это позволяет не зависеть только от cookie и browser storage.</p>
+          </div>
+        </section>
+
+        <!-- JS SDK -->
+        <section class="docs-section" id="sdk" aria-labelledby="sdk-title">
+          <h2 class="section-title" id="sdk-title">JavaScript SDK</h2>
+          <p class="section-lead">Рекомендуемый простой вариант подключения. SDK помогает сохранить attribution context на сайте. <code>SCRIPT_ID</code> создаётся в кабинете бизнеса при подключении JavaScript SDK.</p>
+
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>html</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>&lt;script&gt;
+  (function (window) {
+    var match = location.href.match(/[?&amp;#]rqcid=([a-z0-9]{12})/);
+    if (match) {
+      document.cookie = "rqcid=" + match[1] + ";path=/;max-age=31536000;SameSite=Lax";
+    }
+    var queue = (window.RefIQ = window.RefIQ || []);
+    queue.event = function (name, data) {
+      queue.push(["event", name, data]);
+    };
+  })(window);
+&lt;/script&gt;
+&lt;script async src="https://refiq.ru/sdk.js" data-id="SCRIPT_ID"&gt;&lt;/script&gt;</code></pre>
+          </div>
+
+          <ul class="tags">
+            <li>определяет <code>rqcid</code> из URL</li>
+            <li>сохраняет attribution context в cookie</li>
+            <li>позволяет получить текущий <code>rqcid</code></li>
+            <li>отправляет события через <code>RefIQ.event</code></li>
+          </ul>
+
+          <p>Публичный API SDK использует термин <code>rqcid</code>:</p>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>javascript</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>const rqcid = RefIQ.getRqcid();
+
+fetch('/api/orders', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    product_id: 123,
+    rqcid
+  })
+});</code></pre>
+          </div>
+
+          <p class="result-line">Postback не должен отправляться из браузера. Postback отправляет backend бизнеса server-to-server.</p>
+        </section>
+
+        <!-- Без SDK -->
+        <section class="docs-section" id="without-sdk" aria-labelledby="without-sdk-title">
+          <h2 class="section-title" id="without-sdk-title">Интеграция без SDK</h2>
+          <p class="section-lead">RefIQ SDK не обязателен. Бизнес может самостоятельно прочитать <code>rqcid</code>.</p>
+
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>javascript</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>const params = new URLSearchParams(window.location.search);
+const rqcid = params.get('rqcid');</code></pre>
+          </div>
+
+          <p>После этого бизнес самостоятельно отвечает за:</p>
+          <ul class="prep-list">
+            <li>сохранение <code>rqcid</code>;</li>
+            <li>перенос <code>rqcid</code> между страницами;</li>
+            <li>связь с зарегистрированным пользователем;</li>
+            <li>сохранение <code>rqcid</code> вместе с заказом или лидом.</li>
+          </ul>
+
+          <ol class="docs-flow" aria-label="Поток без SDK">
+            <li><code>GET /product/123?rqcid=rq_8f92a71c</code></li>
+            <li>сохранить rqcid</li>
+            <li>customer / order</li>
+            <li><code>orders.rqcid = rq_8f92a71c</code></li>
+          </ol>
+
+          <p class="tech-note">Не нужно самостоятельно определять Partner или Offer. RefIQ определяет их по <code>rqcid</code>.</p>
+        </section>
+
+        <!-- Clickstream -->
+        <section class="docs-section" id="clickstream" aria-labelledby="clickstream-title">
+          <h2 class="section-title" id="clickstream-title">Clickstream</h2>
+          <p class="section-lead">События поведения пользователя. Это не Conversion.</p>
+
+          <p>Endpoint:</p>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>http</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>POST https://events.refiq.ru/event</code></pre>
+          </div>
+
+          <p>JS SDK может автоматически отправлять события поведения пользователя. Например: <code>page_view</code>, <code>click</code>, <code>form_start</code>, <code>form_submit</code>.</p>
+
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>json</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>{
+  "event": "page_view",
+  "rqcid": "rq_8f92a71c",
+  "url": "https://shop.example.com/product/123",
+  "referrer": "https://example.com/"
+}</code></pre>
+          </div>
+
+          <ol class="docs-flow" aria-label="Схема clickstream">
+            <li>JS SDK</li>
+            <li><code>events.refiq.ru/event</code></li>
+            <li>Clickstream</li>
+          </ol>
+
+          <p class="result-line">Clickstream-событие не создаёт финансовую Conversion. Для регистрации Conversion бизнес должен отправить Postback.</p>
+        </section>
+
+        <!-- Postback -->
+        <section class="docs-section" id="postback" aria-labelledby="postback-title">
+          <h2 class="section-title" id="postback-title">Postback</h2>
+          <p class="section-lead">Server-to-server запрос от backend бизнеса в RefIQ о наступлении целевого действия.</p>
+
+          <p>Примеры Goal: покупка, оплаченный заказ, lead, регистрация, подписка или другое Goal оффера.</p>
+
+          <p>Endpoint:</p>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>http</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>POST https://api.refiq.ru/postback</code></pre>
+          </div>
+
+          <h3 class="docs-h3">Формат</h3>
+          <div class="code-block" data-copy>
+            <div class="code-meta">
+              <span>json</span>
+              <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+            </div>
+            <pre><code>{
+  "rqcid": "rq_8f92a71c",
+  "goal": "purchase",
+  "amount": 14990.00,
+  "currency": "RUB",
+  "timestamp": "2026-08-16T10:30:00Z"
+}</code></pre>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Поле</th>
+                  <th>Обязательное</th>
+                  <th>Описание</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>rqcid</code></td>
+                  <td>Да</td>
+                  <td>Идентификатор атрибутируемого клика</td>
+                </tr>
+                <tr>
+                  <td><code>goal</code></td>
+                  <td>Да</td>
+                  <td>Целевое действие Offer</td>
+                </tr>
+                <tr>
+                  <td><code>amount</code></td>
+                  <td>Зависит от Goal</td>
+                  <td>Сумма операции</td>
+                </tr>
+                <tr>
+                  <td><code>currency</code></td>
+                  <td>При наличии amount</td>
+                  <td>Валюта операции</td>
+                </tr>
+                <tr>
+                  <td><code>timestamp</code></td>
+                  <td>Да</td>
+                  <td>Время возникновения Conversion</td>
+                </tr>
+                <tr>
+                  <td><code>signature</code></td>
+                  <td>Опционально</td>
+                  <td>Подпись запроса, если используется</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="docs-h3">Примеры</h3>
+          <div class="code-tabs" data-tabs>
+            <div class="code-tablist" role="tablist">
+              <button type="button" role="tab" aria-selected="true" data-tab="curl">cURL</button>
+              <button type="button" role="tab" aria-selected="false" data-tab="javascript">JavaScript</button>
+              <button type="button" role="tab" aria-selected="false" data-tab="python">Python</button>
+            </div>
+
+            <div class="code-block" data-panel="curl" data-copy>
+              <div class="code-meta">
+                <span>bash</span>
+                <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+              </div>
+              <pre><code>curl -X POST https://api.refiq.ru/postback \
+  -H "Content-Type: application/json" \
+  -d '{
+    "rqcid": "rq_8f92a71c",
+    "goal": "purchase",
+    "amount": 14990.00,
+    "currency": "RUB",
+    "timestamp": "2026-08-16T10:30:00Z"
+  }'</code></pre>
+            </div>
+
+            <div class="code-block" data-panel="javascript" data-copy hidden>
+              <div class="code-meta">
+                <span>javascript</span>
+                <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+              </div>
+              <pre><code>await fetch('https://api.refiq.ru/postback', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    rqcid: 'rq_8f92a71c',
+    goal: 'purchase',
+    amount: 14990.00,
+    currency: 'RUB',
+    timestamp: '2026-08-16T10:30:00Z'
+  })
+});</code></pre>
+            </div>
+
+            <div class="code-block" data-panel="python" data-copy hidden>
+              <div class="code-meta">
+                <span>python</span>
+                <button type="button" class="btn btn-ghost btn-sm copy-btn">Copy</button>
+              </div>
+              <pre><code>import requests
+
+requests.post(
+    'https://api.refiq.ru/postback',
+    json={
+        'rqcid': 'rq_8f92a71c',
+        'goal': 'purchase',
+        'amount': 14990.00,
+        'currency': 'RUB',
+        'timestamp': '2026-08-16T10:30:00Z',
+    },
+)</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Атрибуция -->
+        <section class="docs-section" id="attribution" aria-labelledby="attribution-title">
+          <h2 class="section-title" id="attribution-title">Как работает атрибуция</h2>
+          <p class="section-lead">У каждого Offer есть Attribution Window — период, в течение которого Conversion может быть засчитана партнёру.</p>
+
+          <div class="tech-note">
+            <p>Attribution Window — бизнес-правило.</p>
+            <p>Cookie — только технический способ сохранения attribution context.</p>
+          </div>
+
+          <p>Для MVP используется правило: last eligible partner click within attribution window.</p>
+
+          <ol class="docs-flow" aria-label="Пример last click">
+            <li>Partner A → Click A</li>
+            <li>Partner B → Click B</li>
+            <li>Conversion</li>
+          </ol>
+
+          <p>Если Click B допустим и находится внутри Attribution Window:</p>
+          <p class="result-line">Conversion → Partner B</p>
+        </section>
+
+        <!-- Архитектура -->
+        <section class="docs-section" id="architecture" aria-labelledby="architecture-title">
+          <h2 class="section-title" id="architecture-title">Общая схема</h2>
+          <div class="arch">
+            <div class="arch-node">PARTNER</div>
+            <p class="arch-label">Tracking Link</p>
+            <div class="arch-node"><code>go.refiq.ru/{short_code}</code></div>
+            <p class="arch-label">HTTP GET</p>
+            <div class="arch-card">
+              <h3>TRACKER</h3>
+              <ul>
+                <li>resolve TrackingLink</li>
+                <li>create Click</li>
+                <li>create <code>rqcid</code></li>
+                <li>HTTP 302</li>
+              </ul>
+            </div>
+            <p class="arch-label">Location: сайт бизнеса <code>?rqcid=...</code></p>
+            <div class="arch-split">
+              <div class="arch-card">
+                <h3>JS SDK</h3>
+                <p><code>POST events.refiq.ru/event</code></p>
+                <p>Clickstream</p>
+              </div>
+              <div class="arch-card">
+                <h3>Backend бизнеса</h3>
+                <p>Conversion</p>
+                <p><code>POST api.refiq.ru/postback</code></p>
+              </div>
+            </div>
+            <p class="arch-label">Attribution Engine</p>
+            <div class="arch-node">Partner commission</div>
+          </div>
+        </section>
+
+        <!-- Проверка -->
+        <section class="docs-section" id="verify" aria-labelledby="verify-title">
+          <h2 class="section-title" id="verify-title">Проверка интеграции</h2>
+          <p class="section-lead">Ручная проверка без sandbox-режима.</p>
+          <ol class="cards cards-2 checklist">
+            <li>
+              <span class="num">01</span>
+              <h3>Открыть Tracking Link</h3>
+              <p>Перейти по <code>https://go.refiq.ru/{short_code}</code>.</p>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <h3>Проверить Destination URL</h3>
+              <p>В адресе сайта бизнеса должен появиться <code>rqcid</code>.</p>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <h3>Проверить сохранение</h3>
+              <p>Сайт сохранил <code>rqcid</code> в cookie, storage или server-side.</p>
+            </li>
+            <li>
+              <span class="num">04</span>
+              <h3>Отправить тестовый Postback</h3>
+              <p>Backend вызывает <code>POST https://api.refiq.ru/postback</code> с сохранённым <code>rqcid</code>.</p>
+            </li>
+            <li>
+              <span class="num">05</span>
+              <h3>Проверить Conversion</h3>
+              <p>Конверсия появляется в кабинете RefIQ.</p>
+            </li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="../index.html">Ref<span>IQ</span></a>
+      <p>Платформа партнёрских продаж и трекинга</p>
+      <nav class="footer-nav" aria-label="Дополнительно">
+        <a href="index.html" aria-current="page">Документация</a>
+      </nav>
+      <p class="footer-meta">© <span id="year"></span> RefIQ</p>
+    </div>
+  </footer>
+
+  <script src="../script.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

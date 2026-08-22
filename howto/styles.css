@@ -1,0 +1,547 @@
+/* Стили страницы /howto — дополняют общие ../styles.css */
+
+.nav a[aria-current="page"] {
+  color: var(--green-deep);
+  background: var(--mint-light);
+}
+
+.nav-login {
+  display: none;
+}
+
+body.nav-open .nav-login {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+/* Hero: выбор пути */
+
+.howto-hero .lead {
+  max-width: 62ch;
+}
+
+.choice {
+  display: grid;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.choice-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.choice-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.choice-card h2 {
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  letter-spacing: -0.025em;
+  font-weight: 750;
+}
+
+.choice-card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.choice-card .btn {
+  margin-top: 8px;
+}
+
+/* Итоговая строка секции */
+
+.result-line {
+  margin-top: 28px;
+  max-width: 780px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--green);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--mint-light);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.result-line code {
+  font-weight: 600;
+}
+
+/* Timeline */
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin-top: 36px;
+  max-width: 760px;
+  counter-reset: step;
+  padding-left: 44px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  background: var(--border-strong);
+}
+
+.timeline > li {
+  counter-increment: step;
+  position: relative;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.timeline > li:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline > li::before {
+  content: counter(step);
+  position: absolute;
+  left: -44px;
+  top: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.timeline h3 {
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.timeline p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.timeline p + p,
+.timeline p + .inline-list,
+.timeline .inline-list + p {
+  margin-top: 8px;
+}
+
+.inline-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.inline-list > li {
+  position: relative;
+  padding: 0 0 0 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.inline-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+.inline-list > li:hover {
+  border: 0;
+  box-shadow: none;
+}
+
+/* Что подготовить */
+
+.prep {
+  margin-top: 28px;
+  max-width: 760px;
+  padding: 20px 22px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--mint-light);
+}
+
+.prep h3 {
+  margin: 0 0 12px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.prep ul {
+  display: grid;
+  gap: 7px;
+}
+
+.prep li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text);
+  font-size: 0.93rem;
+}
+
+.prep li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 12px;
+  height: 6px;
+  border-left: 2px solid var(--green);
+  border-bottom: 2px solid var(--green);
+  transform: rotate(-45deg);
+}
+
+/* Схема пути клика */
+
+.scheme {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.scheme > span:not(.scheme-arrow) {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--mint-light);
+  color: var(--green-deep);
+  font-weight: 600;
+}
+
+.scheme-arrow {
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* Два способа сохранить click_id */
+
+.option-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.option-card {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.option-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-alt {
+  background: transparent;
+  color: var(--green-deep);
+  border: 1px solid var(--green);
+}
+
+.option-card h3 {
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  letter-spacing: -0.02em;
+  font-weight: 720;
+}
+
+.option-card > p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.option-steps {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: opt;
+}
+
+.option-steps li {
+  counter-increment: opt;
+  position: relative;
+  padding: 10px 12px 10px 42px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.option-steps li::before {
+  content: counter(opt);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.option-benefit {
+  margin-top: 16px !important;
+  padding: 12px 14px;
+  border-left: 3px solid var(--green);
+  background: var(--mint-light);
+  color: var(--text) !important;
+  font-weight: 650;
+  font-size: 0.92rem !important;
+}
+
+.option-fit {
+  margin-top: 10px !important;
+  color: var(--muted);
+  font-size: 0.88rem !important;
+}
+
+/* Конкурентное преимущество */
+
+.advantage {
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.advantage h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  font-weight: 720;
+}
+
+.advantage > p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 70ch;
+}
+
+.advantage ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.advantage li {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  font-size: 0.93rem;
+}
+
+.advantage li strong {
+  color: var(--green-deep);
+}
+
+.advantage-note {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--mint-light);
+  color: var(--text) !important;
+  font-size: 0.92rem !important;
+  font-weight: 550;
+}
+
+/* CTA note */
+
+.cta-note {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: rgba(242, 247, 243, 0.65);
+}
+
+.cta-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cta-note a:hover {
+  color: #fff;
+}
+
+.section.is-highlighted .section-title {
+  color: var(--green-deep);
+  transition: color 0.4s var(--ease);
+}
+
+@media (min-width: 640px) {
+  .choice {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prep ul {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+
+  .advantage ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 980px) {
+  .choice {
+    margin-top: 48px;
+    gap: 16px;
+  }
+
+  .option-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .timeline-compact {
+    max-width: none;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 0;
+    gap: 12px;
+  }
+
+  .timeline-compact::before {
+    display: none;
+  }
+
+  .timeline-compact > li {
+    padding-left: 64px;
+  }
+
+  .timeline-compact > li::before {
+    left: 16px;
+  }
+}
+
+.option-card .code-block {
+  margin-top: 16px;
+}
+
+.code-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #1c2420;
+  overflow: hidden;
+}
+
+.code-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #151b18;
+  color: #bfd8c3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 16px 18px 18px;
+  overflow-x: auto;
+}
+
+.code-block code {
+  color: #e8f3ec;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.copy-btn {
+  min-height: 32px;
+  padding: 4px 12px;
+  background: transparent;
+  color: #e8f3ec;
+  border-color: rgba(191, 216, 195, 0.35);
+}
+
+.copy-btn:hover {
+  color: #fff;
+  border-color: #bfd8c3;
+}
+
+.copy-btn.is-copied {
+  border-color: var(--mint, #9fd4b3);
+  color: var(--mint, #9fd4b3);
+}

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RefIQ — платформа партнёрских продаж и трекинга</title>
+  <meta name="description" content="RefIQ помогает запускать партнёрские программы, управлять офферами, партнёрами, tracking links, конверсиями, комиссиями и выплатами." />
+  <meta property="og:title" content="RefIQ — платформа партнёрских продаж и трекинга" />
+  <meta property="og:description" content="RefIQ помогает запускать партнёрские программы, управлять офферами, партнёрами, tracking links, конверсиями, комиссиями и выплатами." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="theme-color" content="#f2f5ef" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="RefIQ — на главную">Ref<span>IQ</span></a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#product">О продукте</a>
+        <a href="#how-it-works">Как работает</a>
+        <a href="howto/index.html">Подключить</a>
+      </nav>
+
+      <a class="btn btn-primary btn-sm header-cta" href="https://app.refiq.ru">Войти</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: ценность + 4 шага запуска -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Платформа партнёрских продаж и трекинга</p>
+        <div class="hero-title-row">
+          <h1 id="hero-title">Партнёрские продажи.<br />Без хаоса в&nbsp;ссылках, выплатах и&nbsp;аналитике.</h1>
+          <div class="hero-mark" role="img" aria-label="Логотип RefIQ"></div>
+        </div>
+        <p class="lead">
+          RefIQ объединяет офферы, партнёров, tracking links, клики, конверсии, комиссии и выплаты в одной платформе.
+          AI помогает создавать и улучшать офферы.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#start">Начать с оффера</a>
+          <a class="btn btn-ghost" href="#how-it-works">Посмотреть как работает</a>
+        </div>
+
+        <!-- Подключение RefIQ к сайту -->
+        <div class="connect" aria-label="Как подключить RefIQ к сайту">
+          <p class="connect-title">Подключение к сайту</p>
+          <ol class="connect-steps">
+            <li><span>1</span>Добавьте сайт</li>
+            <li class="connect-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15" /><path d="M13 6l6 6-6 6" /></svg>
+            </li>
+            <li><span>2</span>Установите код</li>
+            <li class="connect-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15" /><path d="M13 6l6 6-6 6" /></svg>
+            </li>
+            <li><span>3</span>Укажите целевое действие</li>
+          </ol>
+        </div>
+
+        <ol class="hero-steps">
+          <li>
+            <span class="num">01</span>
+            <h2>Создайте оффер</h2>
+            <p>Укажите продукт, целевое действие, комиссию и правила атрибуции.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h2>Пригласите партнёров</h2>
+            <p>Откройте оффер выбранным агентам или всей партнёрской сети.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h2>Выдайте tracking links</h2>
+            <p>Каждый партнёр получает свою ссылку вида <code>go.refiq.ru/{short_code}</code>.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h2>Отслеживайте результат</h2>
+            <p>RefIQ считает клики, конверсии, комиссии и готовит данные для выплат.</p>
+          </li>
+        </ol>
+
+        <!-- Псевдо-статистика платформы -->
+        <div class="stats" aria-label="Статистика платформы">
+          <div class="stat">
+            <span class="stat-value">120+</span>
+            <span class="stat-label">офферов в витрине</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">2 400+</span>
+            <span class="stat-label">активных tracking links</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">98,6%</span>
+            <span class="stat-label">конверсий связано по click_id</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">&lt; 1 мин</span>
+            <span class="stat-label">от postback до статистики</span>
+          </div>
+          <svg class="stat-chart" viewBox="0 0 120 44" aria-hidden="true">
+            <rect x="0"   y="30" width="10" height="14" rx="3" fill="#bfd8c3"/>
+            <rect x="14"  y="24" width="10" height="20" rx="3" fill="#bfd8c3"/>
+            <rect x="28"  y="27" width="10" height="17" rx="3" fill="#9cc3a6"/>
+            <rect x="42"  y="18" width="10" height="26" rx="3" fill="#9cc3a6"/>
+            <rect x="56"  y="21" width="10" height="23" rx="3" fill="#6f9d80"/>
+            <rect x="70"  y="12" width="10" height="32" rx="3" fill="#6f9d80"/>
+            <rect x="84"  y="8"  width="10" height="36" rx="3" fill="#3d6b50"/>
+            <rect x="98"  y="2"  width="10" height="42" rx="3" fill="#27503a"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Проблема -->
+    <section class="section" id="problem" aria-labelledby="problem-title">
+      <div class="container">
+        <p class="eyebrow">Проблема</p>
+        <h2 class="section-title" id="problem-title">Партнёрская программа быстро ломается, если её вести руками</h2>
+        <ul class="problems">
+          <li>Партнёры используют разные ссылки</li>
+          <li>Непонятно, откуда пришёл клиент</li>
+          <li>Конверсии теряются между CRM, сайтом и рекламой</li>
+          <li>Комиссии считаются вручную</li>
+          <li>Выплаты вызывают споры</li>
+          <li>Нет единой картины по эффективности партнёров</li>
+          <li>Нельзя быстро понять, какие офферы работают</li>
+          <li>Сложно масштабировать продажи через агентов и вебмастеров</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Что делает RefIQ -->
+    <section class="section section-alt" id="product" aria-labelledby="product-title">
+      <div class="container">
+        <p class="eyebrow">Продукт</p>
+        <h2 class="section-title" id="product-title">RefIQ собирает партнёрские продажи в&nbsp;один управляемый контур</h2>
+        <p class="section-lead">
+          Вместо набора таблиц, ссылок и ручных проверок компания получает единую систему: офферы, партнёры, tracking links, кликстрим, конверсии, комиссии, выплаты и аналитику.
+        </p>
+        <ol class="cards cards-3">
+          <li>
+            <span class="num">01</span>
+            <h3>Offers</h3>
+            <p>Создание и управление партнёрскими офферами.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Partners</h3>
+            <p>Доступы, статусы, условия и партнёрская сеть.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Tracking links</h3>
+            <p>Персональные ссылки для партнёров и кампаний.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Attribution</h3>
+            <p>Связка клика, партнёра, оффера и целевого действия.</p>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <h3>Commissions</h3>
+            <p>Автоматический расчёт вознаграждений.</p>
+          </li>
+          <li>
+            <span class="num">06</span>
+            <h3>Analytics</h3>
+            <p>Воронка, источники, партнёры, офферы и результат.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3. Как работает -->
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">Как работает</p>
+        <h2 class="section-title" id="how-title">Один путь от клика до выплаты</h2>
+        <ol class="flow">
+          <li>Партнёр берёт оффер</li>
+          <li>Создаёт tracking link</li>
+          <li>Пользователь переходит по ссылке</li>
+          <li>RefIQ создаёт <code>click_id</code></li>
+          <li>Пользователь попадает на сайт рекламодателя</li>
+          <li>Конверсия возвращается в RefIQ</li>
+          <li>Комиссия считается автоматически</li>
+          <li>Рекламодатель видит результат и готовит выплату</li>
+        </ol>
+        <p class="tech-note">
+          Tracking link работает через redirect endpoint RefIQ. Система определяет партнёра, оффер и кампанию, создаёт уникальный <code>click_id</code> и передаёт его на destination URL рекламодателя.
+        </p>
+      </div>
+    </section>
+
+    <!-- Как устроены деньги -->
+    <section class="section section-alt" id="money-flow" aria-labelledby="money-title">
+      <div class="container">
+        <p class="eyebrow">Деньги</p>
+        <h2 class="section-title" id="money-title">Как устроены деньги</h2>
+        <p class="section-lead">
+          RefIQ связывает бизнес, агентов и продажи в одной прозрачной модели: бизнес размещает офферы, агенты приводят продажи, RefIQ фиксирует клики и подтверждённые конверсии через postback, а начисления становятся понятными для всех сторон.
+        </p>
+
+        <ol class="cards cards-3">
+          <li>
+            <span class="num">01</span>
+            <p class="card-role">Бизнес</p>
+            <h3>Плата за размещение</h3>
+            <p>Ежемесячная подписка за присутствие компании и её офферов в витрине RefIQ.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <p class="card-role">Бизнес</p>
+            <h3>Процент с продаж</h3>
+            <p>Бизнес платит процент с каждой продажи, которая пришла через агентов и была подтверждена через postback.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <p class="card-role">Агент</p>
+            <h3>Комиссия с продаж</h3>
+            <p>Агент получает комиссию с подтверждённых продаж по своим tracking links. Сумма начисления считается по правилам оффера.</p>
+          </li>
+        </ol>
+
+        <p class="scheme money-scheme" aria-label="Схема денежной модели">
+          <span>бизнес размещает оффер</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>агент продвигает</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>продажа через postback</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>агент получает комиссию</span>
+          <span class="scheme-arrow" aria-hidden="true">→</span>
+          <span>RefIQ: размещение + процент</span>
+        </p>
+
+        <p class="result-line">
+          Бизнес платит за присутствие в витрине и продажи через агентов. Агент зарабатывает на подтверждённых продажах. RefIQ делает трекинг и расчёты прозрачными.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Для кого -->
+    <section class="section" id="audience" aria-labelledby="audience-title">
+      <div class="container">
+        <p class="eyebrow">Для кого</p>
+        <h2 class="section-title" id="audience-title">Кому нужен RefIQ</h2>
+        <ol class="cards cards-2">
+          <li>
+            <span class="num">01</span>
+            <h3>Рекламодателям и vendor-командам</h3>
+            <p>Чтобы запускать партнёрские продажи и контролировать результат.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Партнёрам и агентам</h3>
+            <p>Чтобы находить офферы, получать ссылки и видеть свои начисления.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Affiliate-менеджерам</h3>
+            <p>Чтобы управлять партнёрами, условиями и качеством трафика.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Фаундерам и C-level</h3>
+            <p>Чтобы видеть экономику партнёрского канала без ручной сверки.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. Возможности -->
+    <section class="section section-alt" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <p class="eyebrow">Возможности</p>
+        <h2 class="section-title" id="features-title">Возможности, которые нужны на старте. Без лишнего комбайна.</h2>
+        <ul class="tags">
+          <li>Создание офферов</li>
+          <li>Публичные и приватные офферы</li>
+          <li>Управление партнёрами</li>
+          <li>Tracking links</li>
+          <li>Campaign-параметры</li>
+          <li>Redirect tracking</li>
+          <li>Clickstream</li>
+          <li>Conversion API / postback</li>
+          <li>Attribution window</li>
+          <li>Гибкие правила вознаграждения</li>
+          <li>Статусы конверсий</li>
+          <li>Расчёт комиссий</li>
+          <li>Payouts</li>
+          <li>Антифрод-сигналы</li>
+          <li>Dashboard по офферам и партнёрам</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Аналитика -->
+    <section class="section" id="analytics" aria-labelledby="analytics-title">
+      <div class="container">
+        <p class="eyebrow">Аналитика</p>
+        <h2 class="section-title" id="analytics-title">Не просто клики. Понятная экономика партнёрского канала.</h2>
+        <p class="section-lead">RefIQ показывает не только объём трафика, но и качество партнёров, офферов и источников.</p>
+        <ul class="metrics">
+          <li>clicks</li>
+          <li>unique clicks</li>
+          <li>conversions</li>
+          <li>conversion rate</li>
+          <li>approved revenue</li>
+          <li>pending commission</li>
+          <li>approved commission</li>
+          <li>payout amount</li>
+          <li>top partners</li>
+          <li>top offers</li>
+          <li>traffic sources</li>
+          <li>quality score</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. AI -->
+    <section class="section section-alt" id="ai" aria-labelledby="ai-title">
+      <div class="container">
+        <p class="eyebrow">AI</p>
+        <h2 class="section-title" id="ai-title">AI помогает быстрее запускать и улучшать офферы</h2>
+        <ol class="cards cards-2">
+          <li>
+            <span class="num">01</span>
+            <h3>Создание оффера из описания</h3>
+            <p>Пользователь описывает продукт в нескольких фразах, RefIQ предлагает структуру оффера.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Подбор условий</h3>
+            <p>AI помогает сформулировать commission model, ограничения и правила.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Поиск слабых мест</h3>
+            <p>AI подсвечивает партнёров, кампании и источники с аномальным поведением.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Рекомендации по росту</h3>
+            <p>AI предлагает, какие офферы усилить, какие отключить и где проверить качество трафика.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8. Как начать -->
+    <section class="section" id="start" aria-labelledby="start-title">
+      <div class="container">
+        <p class="eyebrow">Запуск</p>
+        <h2 class="section-title" id="start-title">Запуск начинается не&nbsp;с&nbsp;интеграции. А&nbsp;с&nbsp;оффера.</h2>
+        <ol class="cards cards-3">
+          <li>
+            <span class="num">01</span>
+            <h3>Опишите продукт</h3>
+            <p>Что продаёте, кому и какое действие считается целевым.</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Задайте условия</h3>
+            <p>Комиссия, окно атрибуции, ограничения и правила проверки.</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Подключите партнёров</h3>
+            <p>Публичный доступ, ручное приглашение или приватный список.</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h3>Разместите tracking links</h3>
+            <p>Партнёры используют ссылки RefIQ в своих каналах.</p>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <h3>Передайте конверсии</h3>
+            <p>Через postback, API или интеграцию с CRM.</p>
+          </li>
+          <li>
+            <span class="num">06</span>
+            <h3>Контролируйте выплаты</h3>
+            <p>Проверяйте статусы, комиссии и итоговые payout batches.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 9. Финальный CTA -->
+    <section class="cta" id="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Пора превратить партнёрские продажи в&nbsp;управляемый канал</h2>
+        <p>Начните с одного оффера, подключите первых партнёров и проверьте экономику канала на реальных данных.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:hello@refiq.ru?subject=Запустить%20первый%20оффер">Запустить первый оффер</a>
+          <a class="btn btn-ghost" href="mailto:hello@refiq.ru?subject=Обсудить%20внедрение">Обсудить внедрение</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#top">Ref<span>IQ</span></a>
+      <p>Платформа партнёрских продаж и трекинга</p>
+      <nav class="footer-nav" aria-label="Дополнительно">
+        <a href="docs/index.html">Документация</a>
+      </nav>
+      <p class="footer-meta">© <span id="year"></span> RefIQ</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
