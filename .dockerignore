@@ -1,4 +1,10 @@
 .git
+.idea
 .DS_Store
+**/.DS_Store
 src
-docs/.DS_Store
+seo
+dist
+Dockerfile
+.dockerignore
+.gitignore

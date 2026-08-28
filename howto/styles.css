@@ -135,6 +135,15 @@ body.nav-open .nav-login {
   font-weight: 700;
 }
 
+.timeline-card-link {
+  display: block;
+  color: inherit;
+}
+
+.timeline > li.is-link:hover {
+  border-color: var(--green);
+}
+
 .timeline h3 {
   font-size: 1rem;
   font-weight: 650;

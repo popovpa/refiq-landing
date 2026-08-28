@@ -1,0 +1,152 @@
+RefIQ landing — semantic / query map
+Internal only. Do not publish, link, or inject into HTML.
+Use for Search Console, SEO analytics, and future content planning.
+
+Canonical public spelling on the landing:
+- партнёрские продажи
+- партнёрский маркетинг
+- affiliate marketing
+- affiliate tracking
+- CPA-модель
+- Offline Tracking / офлайн-трекинг
+- QR-код / QR Tracking
+- Anti-fraud / Anti-shave
+
+==================================================
+Partner Sales
+==================================================
+партнёрские продажи
+партнерские продажи
+партнёрская платформа
+партнерская платформа
+система партнёрских продаж
+система партнерских продаж
+платформа партнёрских продаж
+сервис партнёрских продаж
+
+==================================================
+Affiliate
+==================================================
+affiliate marketing
+affiliate-marketing
+affiliate platform
+affiliate marketing platform
+affiliate software
+affiliate management
+affiliate management platform
+affiliate program software
+affiliate network software
+affiliate tracking
+affiliate tracker
+partner tracking
+partner tracking platform
+affiliate tracking software
+tracking links
+tracking партнёрских ссылок
+трекинг партнёрских ссылок
+
+==================================================
+CPA
+==================================================
+CPA
+cpa
+CPA-модель
+CPA model
+CPA marketing
+CPA platform
+CPA software
+CPA affiliate
+CPA платформа
+CPA партнёрская программа
+CPA партнерская программа
+
+==================================================
+Offline
+==================================================
+offline tracking
+offline conversion tracking
+offline affiliate tracking
+offline marketing tracking
+offline attribution
+offline conversion attribution
+offline to online tracking
+O2O tracking
+офлайн трекинг
+оффлайн трекинг
+офлайн-трекинг
+оффлайн-трекинг
+трекинг офлайн рекламы
+трекинг оффлайн рекламы
+отслеживание офлайн рекламы
+отслеживание оффлайн рекламы
+отслеживание офлайн конверсий
+отслеживание оффлайн конверсий
+офлайн атрибуция
+оффлайн атрибуция
+атрибуция офлайн продаж
+атрибуция оффлайн продаж
+партнёрский офлайн трекинг
+партнерский офлайн трекинг
+офлайн партнёрский маркетинг
+офлайн партнерский маркетинг
+offline affiliate marketing
+
+==================================================
+QR
+==================================================
+QR tracking
+QR code tracking
+QR conversion tracking
+QR attribution
+QR-код трекинг
+QR трекинг
+QR-трекинг
+трекинг QR-кодов
+отслеживание QR-кодов
+аналитика QR-кодов
+партнёрские QR-коды
+партнерские QR-коды
+QR-код для партнёрской ссылки
+QR-код для партнерской ссылки
+affiliate QR code
+affiliate QR tracking
+
+==================================================
+AI
+==================================================
+AI affiliate marketing
+AI affiliate platform
+AI partner marketing
+AI партнёрский маркетинг
+AI для партнёрских продаж
+
+==================================================
+Trust
+==================================================
+affiliate anti fraud
+affiliate antifraud
+anti-fraud
+anti fraud
+antifraud
+anti shave affiliate
+anti-shave
+anti shave
+antishave
+защита от шейва
+антифрод партнёрской программы
+
+==================================================
+Typo / variant queries (analytics only)
+==================================================
+affilate marketing
+afiliate marketing
+affiliate makreting
+affiliate marketig
+оффлайн треккинг
+офлайн треккинг
+партнерский треккинг
+партнёрский треккинг
+QR код
+QR code
+оффлайн трекинг
+треккинг
