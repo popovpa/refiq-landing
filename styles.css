@@ -62,6 +62,7 @@ ol {
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
 }
@@ -1493,6 +1494,24 @@ body.nav-open .nav a {
     opacity: 0;
     animation: offline-packet 6s var(--ease) infinite;
   }
+
+  .mbv-chart-line {
+    stroke-dasharray: 420;
+    stroke-dashoffset: 420;
+    animation: mbv-draw 2.4s var(--ease) forwards;
+  }
+
+  .mbv-chart-fill {
+    animation: mbv-fill 2.4s var(--ease) forwards;
+  }
+
+  .mbv-kpis li b {
+    animation: mbv-pop 0.6s var(--ease) both;
+  }
+
+  .mbv-kpis li:nth-child(2) b { animation-delay: 0.08s; }
+  .mbv-kpis li:nth-child(3) b { animation-delay: 0.16s; }
+  .mbv-kpis li:nth-child(4) b { animation-delay: 0.24s; }
 }
 
 @media (min-width: 768px) {
@@ -1611,6 +1630,20 @@ body.nav-open .nav a {
   100% { left: calc(100% - 8px); opacity: 0; }
 }
 
+@keyframes mbv-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes mbv-fill {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mbv-pop {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1621,5 +1654,197 @@ body.nav-open .nav a {
   *::after {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* Медиабаинг и вертикали */
+
+.mbv-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.mbv-media,
+.mbv-verticals {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.mbv-media h3,
+.mbv-verticals h3 {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  font-weight: 720;
+}
+
+.mbv-media > p,
+.mbv-verticals > p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.mbv-points {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.mbv-points li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.mbv-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+.mbv-demo {
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--mint-light);
+}
+
+.mbv-campaign {
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.mbv-kpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.mbv-kpis li {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.mbv-kpis b {
+  display: block;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.mbv-chart {
+  margin-top: 10px;
+  padding: 8px 10px 4px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.mbv-chart svg {
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+
+.mbv-chart-fill {
+  fill: rgba(61, 107, 80, 0.16);
+}
+
+.mbv-chart-line {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.mbv-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.mbv-sources li {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.mbv-sources li.is-active {
+  border-color: var(--green);
+  background: var(--card);
+  color: var(--green-deep);
+}
+
+.mbv-industries {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.mbv-industries li {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.mbv-industries h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.mbv-industries p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.mbv-accent {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--mint-light);
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 650;
+}
+
+@media (min-width: 640px) {
+  .mbv-kpis {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .mbv-industries {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 980px) {
+  .mbv-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: start;
   }
 }

@@ -88,6 +88,7 @@
   cycleActive(".ai-flow li", 1600);
   cycleActive(".trust-nodes li", 960);
   cycleActive(".offline-flow li", 1200);
+  cycleActive(".mbv-sources li", 1400);
 
   document.querySelectorAll("[data-copy]").forEach(function (button) {
     button.addEventListener("click", function () {
