@@ -114,4 +114,17 @@
       done();
     });
   });
+
+  var cookieNotice = document.getElementById("cookie-notice");
+  var cookieBtn = document.getElementById("cookie-accept");
+  if (cookieNotice) {
+    if (localStorage.getItem("refiq_cookie_ok")) {
+      cookieNotice.hidden = true;
+    } else if (cookieBtn) {
+      cookieBtn.addEventListener("click", function () {
+        localStorage.setItem("refiq_cookie_ok", "1");
+        cookieNotice.hidden = true;
+      });
+    }
+  }
 })();
