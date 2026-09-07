@@ -2,7 +2,6 @@
 .idea
 .DS_Store
 **/.DS_Store
-src
 seo
 dist
 Dockerfile

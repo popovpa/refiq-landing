@@ -18,6 +18,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
   <link rel="shortcut icon" href="/assets/favicon.ico" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/docs/styles.css" />
   <!-- Yandex.Metrika counter -->
@@ -39,16 +42,16 @@
 
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="logo" href="/" aria-label="RefIQ — на главную">Ref<span>IQ</span></a>
+      <a class="brand" href="/" aria-label="RefIQ — главная"><img src="/assets/logo.png" alt="" width="34" height="28" /><img class="brand-label" src="/src/label.png" alt="" width="92" height="27" /></a>
 
       <nav class="nav" id="nav" aria-label="Основная навигация">
         <a href="/">О продукте</a>
         <a href="/#how-it-works">Как работает</a>
         <a href="/howto">Подключить</a>
-        <a class="nav-login btn btn-primary btn-sm" href="https://app.refiq.ru">Войти</a>
+        <a class="nav-login button button-login" href="https://app.refiq.ru">Войти</a>
       </nav>
 
-      <a class="btn btn-primary btn-sm header-cta" href="https://app.refiq.ru">Войти</a>
+      <a class="button button-login" href="https://app.refiq.ru">Войти</a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
         <span></span>

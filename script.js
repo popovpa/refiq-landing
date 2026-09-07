@@ -3,15 +3,16 @@
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("nav");
   var year = document.getElementById("year");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (year) {
     year.textContent = String(new Date().getFullYear());
   }
 
-  function setHeaderState() {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  function updateHeader() {
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    }
   }
 
   function closeNav() {
@@ -23,8 +24,8 @@
 
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      var expanded = toggle.getAttribute("aria-expanded") === "true";
-      if (expanded) {
+      var open = toggle.getAttribute("aria-expanded") === "true";
+      if (open) {
         closeNav();
       } else {
         toggle.setAttribute("aria-expanded", "true");
@@ -38,67 +39,50 @@
     });
   }
 
+  window.addEventListener("resize", function () {
+    if (window.matchMedia("(min-width: 981px)").matches) closeNav();
+  });
+  window.addEventListener("scroll", updateHeader, { passive: true });
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") closeNav();
   });
-
-  window.addEventListener("resize", function () {
-    if (window.matchMedia("(min-width: 980px)").matches) closeNav();
-  });
-
-  setHeaderState();
-  window.addEventListener("scroll", setHeaderState, { passive: true });
+  updateHeader();
 
   var revealNodes = document.querySelectorAll("[data-reveal]");
-  if (reduce || !("IntersectionObserver" in window)) {
-    revealNodes.forEach(function (el) {
-      el.classList.add("is-visible");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealNodes.forEach(function (node) {
+      node.classList.add("is-visible");
     });
   } else {
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
     );
-    revealNodes.forEach(function (el) {
-      observer.observe(el);
+    revealNodes.forEach(function (node) {
+      observer.observe(node);
     });
   }
 
-  function cycleActive(selector, interval) {
-    var items = document.querySelectorAll(selector);
-    if (!items.length) return;
-    var index = 0;
-    items[0].classList.add("is-active");
-    if (reduce) return;
-    setInterval(function () {
-      items[index].classList.remove("is-active");
-      index = (index + 1) % items.length;
-      items[index].classList.add("is-active");
-    }, interval);
-  }
+  document.querySelectorAll("[data-copy]").forEach(function (block) {
+    var button = block.matches("button") ? block : block.querySelector(".copy-btn");
+    var source = block.matches("button")
+      ? document.getElementById(block.getAttribute("data-copy"))
+      : block.querySelector("code");
+    if (!button || !source) return;
 
-  cycleActive(".hero-flow li", 1400);
-  cycleActive(".ai-flow li", 1600);
-  cycleActive(".trust-nodes li", 960);
-  cycleActive(".offline-flow li", 1200);
-  cycleActive(".mbv-sources li", 1400);
-
-  document.querySelectorAll("[data-copy]").forEach(function (button) {
     button.addEventListener("click", function () {
-      var source = document.getElementById(button.getAttribute("data-copy"));
-      if (!source) return;
-      var text = source.textContent.replace(/^\s+|\s+$/g, "");
+      var text = source.textContent.trim();
+      var original = button.textContent;
       function done() {
-        button.textContent = "Copied";
+        button.textContent = "Скопировано";
         setTimeout(function () {
-          button.textContent = "Copy";
+          button.textContent = original;
         }, 1200);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -110,21 +94,31 @@
       document.body.appendChild(area);
       area.select();
       document.execCommand("copy");
-      document.body.removeChild(area);
+      area.remove();
       done();
     });
   });
 
   var cookieNotice = document.getElementById("cookie-notice");
-  var cookieBtn = document.getElementById("cookie-accept");
+  var cookieButton = document.getElementById("cookie-accept");
+  var storageKey = "refiq_cookie_ok";
   if (cookieNotice) {
-    if (localStorage.getItem("refiq_cookie_ok")) {
-      cookieNotice.hidden = true;
-    } else if (cookieBtn) {
-      cookieBtn.addEventListener("click", function () {
-        localStorage.setItem("refiq_cookie_ok", "1");
+    try {
+      if (localStorage.getItem(storageKey)) {
         cookieNotice.hidden = true;
-      });
+      } else if (cookieButton) {
+        cookieButton.addEventListener("click", function () {
+          localStorage.setItem(storageKey, "1");
+          document.documentElement.classList.add("cookie-accepted");
+          cookieNotice.hidden = true;
+        });
+      }
+    } catch (error) {
+      if (cookieButton) {
+        cookieButton.addEventListener("click", function () {
+          cookieNotice.hidden = true;
+        });
+      }
     }
   }
 })();

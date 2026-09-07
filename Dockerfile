@@ -4,6 +4,8 @@ WORKDIR /src
 COPY build.py ./
 COPY index.html 404.html styles.css script.js robots.txt sitemap.xml ./
 COPY assets ./assets
+COPY design ./design
+COPY src ./src
 COPY howto ./howto
 COPY docs ./docs
 

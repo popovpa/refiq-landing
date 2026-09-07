@@ -32,7 +32,7 @@ PUBLIC_FILES = (
     "robots.txt",
     "sitemap.xml",
 )
-PUBLIC_DIRS = ("assets", "howto", "docs")
+PUBLIC_DIRS = ("assets", "design", "src", "howto", "docs")
 SKIP_NAMES = {".DS_Store"}
 DIGEST_LEN = 12
 
