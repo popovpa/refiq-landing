@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Copy public landing files and stamp local static URLs with ?nocache=<checksum>."""
+"""Copy public landing files, compress oversized images, and stamp static URLs."""
 
 from __future__ import annotations
 
@@ -9,6 +9,8 @@ import re
 import shutil
 import sys
 from pathlib import Path
+
+from compress_assets import compress_tree
 
 SITE_ORIGIN = "https://refiq.ru"
 ASSET_EXT = {
@@ -189,6 +191,7 @@ def main() -> int:
     if missing:
         print("missing public files: " + ", ".join(missing), file=sys.stderr)
         return 1
+    compress_tree(dest)
     changed = stamp_tree(dest)
     print(f"built {dest}")
     for path in changed:
