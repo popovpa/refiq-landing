@@ -1,38 +1,115 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<script>
+  (function (window) {
+    var match = location.href.match(/[?&#]rqcid=([a-z0-9]{12})/);
+    if (match) {
+      document.cookie = "rqcid=" + match[1] + ";path=/;max-age=31536000;SameSite=Lax";
+    }
+    var queue = (window.RefIQ = window.RefIQ || []);
+    queue.event = function (name, data) {
+      queue.push(["event", name, data]);
+    };
+  })(window);
+</script>
+<script async src="https://refiq.ru/sdk.js" data-site-id="ndpkv"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RefIQ — платформа партнёрских продаж</title>
-  <meta name="description" content="RefIQ помогает бизнесу развивать продажи через партнёров, а партнёрам — находить офферы, видеть результат и получать выплаты." />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <title>RefIQ — платформа партнёрских продаж и аналитики</title>
+  <meta name="description" content="Платформа партнёрских продаж RefIQ: офферы, трекинговые ссылки и QR-коды, аналитика конверсий, комиссии и выплаты партнёрам." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="RefIQ" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://refiq.ru/" />
+  <link rel="altern ate" hreflang="ru-RU" href="https://refiq.ru/" />
+  <link rel="alternate" hreflang="x-default" href="https://refiq.ru/" />
   <meta property="og:site_name" content="RefIQ" />
-  <meta property="og:title" content="RefIQ — платформа партнёрских продаж" />
-  <meta property="og:description" content="Больше продаж вместе с партнёрами." />
+  <meta property="og:title" content="RefIQ — платформа партнёрских продаж и аналитики" />
+  <meta property="og:description" content="Запускайте партнёрские продажи, управляйте офферами и отслеживайте конверсии, комиссии и выплаты в одной платформе." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:url" content="https://refiq.ru/" />
   <meta property="og:image" content="https://refiq.ru/design/assets/hero-dashboard.png" />
+  <meta property="og:image:width" content="1378" />
+  <meta property="og:image:height" content="988" />
+  <meta property="og:image:alt" content="Панель аналитики партнёрских продаж RefIQ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RefIQ — платформа партнёрских продаж и аналитики" />
+  <meta name="twitter:description" content="Офферы, партнёры, трекинг конверсий, комиссии и выплаты в одной платформе." />
+  <meta name="twitter:image" content="https://refiq.ru/design/assets/hero-dashboard.png" />
+  <meta name="twitter:image:alt" content="Панель аналитики партнёрских продаж RefIQ" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
   <link rel="shortcut icon" href="/assets/favicon.ico" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="/design/assets/hero-dashboard.png" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
   <script>try{if(localStorage.getItem("refiq_cookie_ok")){document.documentElement.classList.add("cookie-accepted");}}catch(e){}</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "RefIQ",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "url": "https://refiq.ru/",
-    "description": "Платформа партнёрских продаж для бизнеса и партнёров."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://refiq.ru/#organization",
+        "name": "RefIQ",
+        "url": "https://refiq.ru/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://refiq.ru/assets/logo.png",
+          "width": 488,
+          "height": 397
+        },
+        "email": "admin@pop-tech.ru",
+        "telephone": "+7-936-144-48-89"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://refiq.ru/#website",
+        "url": "https://refiq.ru/",
+        "name": "RefIQ",
+        "inLanguage": "ru-RU",
+        "publisher": {"@id": "https://refiq.ru/#organization"}
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://refiq.ru/#webpage",
+        "url": "https://refiq.ru/",
+        "name": "RefIQ — платформа партнёрских продаж и аналитики",
+        "description": "Платформа для управления офферами, партнёрами, трекингом конверсий, комиссиями и выплатами.",
+        "inLanguage": "ru-RU",
+        "isPartOf": {"@id": "https://refiq.ru/#website"},
+        "about": {"@id": "https://refiq.ru/#application"},
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://refiq.ru/design/assets/hero-dashboard.png",
+          "width": 1378,
+          "height": 988
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://refiq.ru/#application",
+        "name": "RefIQ",
+        "url": "https://refiq.ru/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "ru-RU",
+        "provider": {"@id": "https://refiq.ru/#organization"},
+        "description": "Платформа партнёрских продаж для бизнеса и партнёров.",
+        "featureList": [
+          "Управление офферами и партнёрами",
+          "Трекинговые ссылки и QR-коды",
+          "Аналитика кликов и конверсий",
+          "Комиссии и выплаты",
+          "Офлайн-трекинг и медиабаинг"
+        ]
+      }
+    ]
   }
   </script>
   <!-- Yandex.Metrika counter -->
@@ -110,7 +187,6 @@
     <section class="hero section-wave" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
-          <p class="eyebrow">ПЛАТФОРМА ПАРТНЁРСКИХ ПРОДАЖ</p>
           <h1 id="hero-title">Больше продаж<br /><span class="hero-line"><span class="accent underline">вместе</span> с партнёрами</span></h1>
           <p class="hero-lead">RefIQ помогает бизнесу расти через партнёрские каналы.<br />Привлекайте новых клиентов. Развивайте партнёрскую сеть.<br />Увеличивайте продажи.</p>
           <div class="actions">
@@ -139,10 +215,42 @@
           </ul>
         </div>
         <div class="hero-visual" data-reveal>
-          <img src="/design/assets/hero-dashboard.png" alt="Обзор платформы RefIQ для бизнеса" width="1378" height="988" />
+          <img src="/design/assets/hero-dashboard.png" alt="Панель аналитики партнёрских продаж RefIQ для бизнеса" width="1378" height="988" fetchpriority="high" decoding="async" />
         </div>
       </div>
     </section>
+
+    <div class="container early-access-container">
+      <aside class="early-access-notice" aria-labelledby="early-access-title" data-reveal>
+        <header class="early-access-header">
+          <span class="early-access-icon" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>
+          <h2 class="early-access-title" id="early-access-title">Early Access</h2>
+        </header>
+        <div class="early-access-grid">
+          <article class="early-access-track early-access-business">
+            <p class="early-access-kicker">Для бизнеса</p>
+            <h3>Бесплатно для бизнеса</h3>
+            <p>На период Early Access новые бизнес-аккаунты используют RefIQ бесплатно.</p>
+            <p class="early-access-secondary">RefIQ активно развивается. Основной контур трекинга работает стабильно, а новые возможности регулярно добавляются и улучшаются.</p>
+          </article>
+          <article class="early-access-track early-access-partners">
+            <p class="early-access-kicker">Для партнёров</p>
+            <h3>Полный доступ для партнёров</h3>
+            <p>На период Early Access партнёры получают полный доступ к возможностям RefIQ для продвижения офферов.</p>
+            <ul class="early-access-benefits" aria-label="Возможности для партнёров">
+              <li>Офферы без искусственных продуктовых ограничений</li>
+              <li>Партнёрские ссылки и QR-коды</li>
+              <li>Полная аналитика и статистика</li>
+              <li>AI-материалы для продвижения</li>
+              <li>Приоритетный доступ к новым офферам</li>
+              <li>Приоритетная поддержка</li>
+              <li>Возможность влиять на развитие продукта</li>
+            </ul>
+          </article>
+        </div>
+        <p class="early-access-rules"><b>Стандартные правила сохраняются:</b> источники трафика, compliance, anti-fraud, подтверждение конверсий, hold period, APPROVAL_REQUIRED, выплаты и условия конкретного Offer. Комиссия определяется условиями конкретного Offer.</p>
+      </aside>
+    </div>
 
     <section class="section section-product section-wave" id="product" aria-labelledby="product-title">
       <div class="container">
@@ -167,7 +275,7 @@
               </ul>
             </div>
             <div class="audience-shot-wrap">
-              <img class="audience-shot" src="/design/assets/hero-dashboard.png" alt="Кабинет бизнеса RefIQ" width="1378" height="988" />
+              <img class="audience-shot" src="/design/assets/hero-dashboard.png" alt="Кабинет бизнеса RefIQ с аналитикой офферов и конверсий" width="1378" height="988" loading="lazy" decoding="async" />
             </div>
           </article>
           <article class="audience-card audience-partner" data-reveal>
@@ -186,7 +294,7 @@
               </ul>
             </div>
             <div class="audience-shot-wrap">
-              <img class="audience-shot" src="/design/assets/offer.png" alt="Оффер в кабинете партнёра RefIQ" width="1586" height="992" />
+              <img class="audience-shot" src="/design/assets/offer.png" alt="Карточка оффера в партнёрском кабинете RefIQ" width="1586" height="992" loading="lazy" decoding="async" />
             </div>
           </article>
         </div>
@@ -215,15 +323,14 @@
         </ol>
         <p class="process-caption" data-reveal>Бизнес создаёт оффер, партнёр получает ссылку или QR, а RefIQ связывает клик, продажу и выплату в одном контуре.</p>
         <div class="how-dashboard" data-reveal>
-          <img src="/design/assets/hero-dashboard.png" alt="Воронка партнёрских продаж в RefIQ" width="1448" height="1086" />
+          <img src="/design/assets/hero-dashboard.png" alt="Воронка и показатели партнёрских продаж в RefIQ" width="1378" height="988" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
-    <section class="section section-money section-wave" aria-labelledby="money-title">
+    <section class="section section-money section-wave" id="money" aria-labelledby="money-title">
       <div class="container">
         <header class="section-heading centered">
-          <p class="eyebrow">ПРОСТАЯ И ПРОЗРАЧНАЯ ЭКОНОМИКА</p>
           <h2 id="money-title">Как устроены <span class="accent underline">деньги</span></h2>
           <p>Прозрачная модель для бизнеса и партнёров.</p>
         </header>
@@ -242,7 +349,7 @@
       </div>
     </section>
 
-    <section class="section section-features section-wave" aria-labelledby="features-title">
+    <section class="section section-features section-wave" id="features" aria-labelledby="features-title">
       <div class="container">
         <header class="section-heading centered">
           <h2 id="features-title">Функционал, который <span class="accent underline">двигает продажи</span></h2>
@@ -257,12 +364,12 @@
           <article data-reveal><span class="round-icon mint" aria-hidden="true"><svg><use href="#i-shield"/></svg></span><div><h3>Прозрачность и антифрод</h3><p>Честная статистика и защита от накруток.</p></div></article>
         </div>
         <div class="analytics-visual" data-reveal>
-          <img src="/design/assets/analytics.png" alt="Аналитика RefIQ по кликам, конверсиям и продажам" width="1448" height="1086" />
+          <img src="/design/assets/analytics.png" alt="Аналитика RefIQ по кликам, конверсиям и партнёрским продажам" width="1448" height="1086" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
-    <section class="section section-offline section-wave" aria-labelledby="offline-title">
+    <section class="section section-offline section-wave" id="offline-tracking" aria-labelledby="offline-title">
       <div class="container">
         <header class="section-heading centered">
           <h2 id="offline-title">Не только <span class="accent underline">онлайн</span></h2>
@@ -278,7 +385,7 @@
               <li><svg aria-hidden="true"><use href="#i-box"/></svg>Упаковка</li>
               <li><svg aria-hidden="true"><use href="#i-store"/></svg>POS-материалы</li>
             </ul>
-            <img src="/design/assets/offline-track.png" alt="Офлайн-трекинг RefIQ через QR-коды" width="1672" height="941" />
+            <img src="/design/assets/offline-track.png" alt="Офлайн-трекинг партнёрских продаж RefIQ через QR-коды" width="1672" height="941" loading="lazy" decoding="async" />
           </article>
           <article class="special-card" data-reveal>
             <div class="special-title"><span class="round-icon blue" aria-hidden="true"><svg><use href="#i-chart"/></svg></span><div><h3>Для медиабаинга</h3><p>Запускайте рекламные кампании, отслеживайте весь путь от клика до продаж и оценивайте эффективность.</p></div></div>
@@ -290,17 +397,16 @@
               <li><svg aria-hidden="true"><use href="#i-coins"/></svg>Расходы</li>
               <li><svg aria-hidden="true"><use href="#i-chart"/></svg>ROI</li>
             </ul>
-            <img src="/design/assets/mediabuying.png" alt="Аналитика медиабаинга в RefIQ" width="1672" height="941" />
+            <img src="/design/assets/mediabuying.png" alt="Аналитика рекламных кампаний и медиабаинга в RefIQ" width="1672" height="941" loading="lazy" decoding="async" />
           </article>
         </div>
         <p class="wide-note"><span class="round-icon small mint" aria-hidden="true"><svg><use href="#i-link"/></svg></span><b><span class="accent">Один контур</span> для партнёрских продаж, офлайн-продвижения и медиабаинга.</b></p>
       </div>
     </section>
 
-    <section class="section section-industries section-wave" aria-labelledby="industries-title">
+    <section class="section section-industries section-wave" id="industries" aria-labelledby="industries-title">
       <div class="container">
         <header class="section-heading centered">
-          <p class="eyebrow">РАБОТАЕТ В ЛЮБЫХ ИНДУСТРИЯХ</p>
           <h2 id="industries-title">Для разных <span class="accent underline">индустрий</span> и бизнесов</h2>
           <p>RefIQ — мультивертикальная система для разных моделей продаж.</p>
         </header>
@@ -418,7 +524,7 @@
         <a class="brand" href="/" aria-label="RefIQ — главная"><img src="/assets/logo.png" alt="" width="30" height="25" /><img class="brand-label" src="/src/label.png" alt="" width="82" height="24" /></a>
         <p>Больше продаж<br />вместе с партнёрами.</p>
       </div>
-      <nav aria-label="Продукт"><h3>Продукт</h3><a href="#product">О продукте</a><a href="#how-it-works">Как работает</a><a href="#money-title">Как устроены деньги</a><a href="#features-title">Возможности</a></nav>
+      <nav aria-label="Продукт"><h3>Продукт</h3><a href="#product">О продукте</a><a href="#how-it-works">Как работает</a><a href="#money">Как устроены деньги</a><a href="#features">Возможности</a></nav>
       <nav aria-label="Партнёрам"><h3>Партнёрам</h3><a href="https://app.refiq.ru">Стать партнёром</a><a href="#product">Офферы</a><a href="#connect">Подключение</a></nav>
       <nav aria-label="Компания"><h3>Компания</h3><a href="/docs">Документация</a><a href="/howto">Подключить</a><a href="https://pop-tech.ru">Вендор</a></nav>
       <address><h3>Связаться с нами</h3><a href="mailto:admin@pop-tech.ru">admin@pop-tech.ru</a><a href="https://t.me/popular_technologies">Telegram</a><a href="tel:+79361444889">+7 936 144-48-89</a></address>

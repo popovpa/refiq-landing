@@ -19,6 +19,12 @@ body.nav-open .nav-login {
   max-width: 62ch;
 }
 
+.docs-updated {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .docs-layout {
   display: grid;
   gap: 24px;

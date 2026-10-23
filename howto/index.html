@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<script>
+  (function (window) {
+    var match = location.href.match(/[?&#]rqcid=([a-z0-9]{12})/);
+    if (match) {
+      document.cookie = "rqcid=" + match[1] + ";path=/;max-age=31536000;SameSite=Lax";
+    }
+    var queue = (window.RefIQ = window.RefIQ || []);
+    queue.event = function (name, data) {
+      queue.push(["event", name, data]);
+    };
+  })(window);
+</script>
+<script async src="https://refiq.ru/sdk.js" data-site-id="ndpkv"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Как подключиться к RefIQ</title>
-  <meta name="description" content="Подключение RefIQ для бизнеса и партнёров: создание оффера, трекинговые ссылки, JS SDK, своя логика сайта и Postback." />
-  <meta name="robots" content="index, follow" />
+  <title>Подключение RefIQ: инструкция для бизнеса и партнёров</title>
+  <meta name="description" content="Пошаговое подключение RefIQ для бизнеса и партнёров: создание оффера, трекинговые ссылки и QR-коды, JS SDK, Postback и выплаты." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="RefIQ" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://refiq.ru/howto" />
-  <meta property="og:title" content="Как подключиться к RefIQ" />
-  <meta property="og:description" content="Быстрый старт для бизнеса и партнёров." />
-  <meta property="og:type" content="website" />
+  <link rel="alternate" hreflang="ru-RU" href="https://refiq.ru/howto" />
+  <link rel="alternate" hreflang="x-default" href="https://refiq.ru/howto" />
+  <meta property="og:site_name" content="RefIQ" />
+  <meta property="og:title" content="Подключение RefIQ: инструкция для бизнеса и партнёров" />
+  <meta property="og:description" content="Два понятных пути подключения: для бизнеса и для партнёра. От регистрации и оффера до трекинга, Postback и выплаты." />
+  <meta property="og:type" content="article" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:url" content="https://refiq.ru/howto" />
+  <meta property="og:image" content="https://refiq.ru/design/assets/hero-dashboard.png" />
+  <meta property="og:image:width" content="1378" />
+  <meta property="og:image:height" content="988" />
+  <meta property="og:image:alt" content="Подключение к платформе партнёрских продаж RefIQ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Подключение RefIQ для бизнеса и партнёров" />
+  <meta name="twitter:description" content="Пошаговая инструкция: оффер, трекинговая ссылка, JS SDK, Postback и выплаты." />
+  <meta name="twitter:image" content="https://refiq.ru/design/assets/hero-dashboard.png" />
+  <meta name="twitter:image:alt" content="Подключение к платформе партнёрских продаж RefIQ" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
   <link rel="shortcut icon" href="/assets/favicon.ico" />
@@ -22,6 +48,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/howto/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://refiq.ru/#organization",
+        "name": "RefIQ",
+        "url": "https://refiq.ru/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://refiq.ru/assets/logo.png",
+          "width": 488,
+          "height": 397
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://refiq.ru/#website",
+        "url": "https://refiq.ru/",
+        "name": "RefIQ",
+        "inLanguage": "ru-RU",
+        "publisher": {"@id": "https://refiq.ru/#organization"}
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://refiq.ru/howto#webpage",
+        "url": "https://refiq.ru/howto",
+        "name": "Подключение RefIQ: инструкция для бизнеса и партнёров",
+        "description": "Пошаговое подключение платформы партнёрских продаж RefIQ для бизнеса и партнёров.",
+        "inLanguage": "ru-RU",
+        "isPartOf": {"@id": "https://refiq.ru/#website"},
+        "breadcrumb": {"@id": "https://refiq.ru/howto#breadcrumb"},
+        "mainEntity": [
+          {"@id": "https://refiq.ru/howto#business-howto"},
+          {"@id": "https://refiq.ru/howto#partner-howto"}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://refiq.ru/howto#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "RefIQ",
+            "item": "https://refiq.ru/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Подключение",
+            "item": "https://refiq.ru/howto"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://refiq.ru/howto#business-howto",
+        "name": "Как подключить бизнес к RefIQ",
+        "description": "Четыре шага для запуска партнёрских продаж.",
+        "inLanguage": "ru-RU",
+        "step": [
+          {"@type": "HowToStep", "position": 1, "name": "Зарегистрируйтесь", "text": "Создайте аккаунт компании и заполните профиль."},
+          {"@type": "HowToStep", "position": 2, "name": "Создайте оффер", "text": "Опишите продукт, условия и целевое действие."},
+          {"@type": "HowToStep", "position": 3, "name": "Подключите сайт", "text": "Выберите JS SDK или собственную логику сайта."},
+          {"@type": "HowToStep", "position": 4, "name": "Настройте Postback", "text": "Передавайте подтверждённые конверсии в RefIQ."}
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://refiq.ru/howto#partner-howto",
+        "name": "Как стать партнёром RefIQ",
+        "description": "Четыре шага для старта работы с офферами.",
+        "inLanguage": "ru-RU",
+        "step": [
+          {"@type": "HowToStep", "position": 1, "name": "Зарегистрируйтесь", "text": "Создайте аккаунт партнёра и заполните профиль."},
+          {"@type": "HowToStep", "position": 2, "name": "Выберите оффер", "text": "Изучите условия и выберите подходящий продукт."},
+          {"@type": "HowToStep", "position": 3, "name": "Получите ссылку или QR", "text": "Используйте персональные материалы для продвижения."},
+          {"@type": "HowToStep", "position": 4, "name": "Получайте комиссию", "text": "Следите за результатами, начислениями и выплатами."}
+        ]
+      }
+    ]
+  }
+  </script>
   <script>try{if(localStorage.getItem("refiq_cookie_ok")){document.documentElement.classList.add("cookie-accepted");}}catch(e){}</script>
   <!-- Yandex.Metrika counter -->
   <script>
@@ -60,7 +171,6 @@
   <main id="main">
     <section class="howto-hero section-wave" aria-labelledby="howto-title">
       <div class="container">
-        <p class="eyebrow">ПОДКЛЮЧЕНИЕ REFIQ</p>
         <h1 id="howto-title">Подключение без сложного <span class="accent underline">внедрения</span></h1>
         <p>Выберите свой путь и начните работать с партнёрскими продажами.</p>
         <div class="howto-actions">
@@ -151,7 +261,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand"><a class="brand" href="/" aria-label="RefIQ — главная"><img src="/assets/logo.png" alt="" width="30" height="25" /><img class="brand-label" src="/src/label.png" alt="" width="82" height="24" /></a><p>Больше продаж<br />вместе с партнёрами.</p></div>
-      <nav aria-label="Продукт"><h3>Продукт</h3><a href="/#product">О продукте</a><a href="/#how-it-works">Как работает</a><a href="/#features-title">Возможности</a></nav>
+      <nav aria-label="Продукт"><h3>Продукт</h3><a href="/#product">О продукте</a><a href="/#how-it-works">Как работает</a><a href="/#features">Возможности</a></nav>
       <nav aria-label="Партнёрам"><h3>Партнёрам</h3><a href="https://app.refiq.ru">Стать партнёром</a><a href="/#product">Офферы</a><a href="/#connect">Подключение</a></nav>
       <nav aria-label="Компания"><h3>Компания</h3><a href="/docs">Документация</a><a href="/howto">Подключить</a><a href="https://pop-tech.ru">Вендор</a></nav>
       <address><h3>Связаться с нами</h3><a href="mailto:admin@pop-tech.ru">admin@pop-tech.ru</a><a href="https://t.me/popular_technologies">Telegram</a><a href="tel:+79361444889">+7 936 144-48-89</a></address>
